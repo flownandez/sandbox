@@ -36,8 +36,8 @@ class Triplet(Resource):
         TRIPLETS[triplet_id] = task
         return task, 201
 
-# TodoList
-#   shows a list of all todos, and lets you POST to add new tasks
+# TripletList
+#   shows a list of all triplets, and lets you POST to add new tasks
 class TripletList(Resource):
     def get(self):
         return TRIPLETS
@@ -48,9 +48,7 @@ class TripletList(Resource):
         TRIPLETS[triplet_id] = {'task': args['task']}
         return TRIPLETS[triplet_id], 201
 
-##
-## Actually setup the Api resource routing here
-##
+## Setup the Api resource routing here
 api.add_resource(TripletList, '/triplets')
 api.add_resource(Triplet, '/triplets/<string:triplet_id>')
 
